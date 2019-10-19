@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redistogo-angular-59488
+  url: redis://redistogo:7524aa6703b4b4d82da25d44de9c2573@pearlfish.redistogo.com:10083/
   channel_prefix: instatalk_production
