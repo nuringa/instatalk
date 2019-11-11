@@ -4,10 +4,17 @@ class PresenceChannel < ApplicationCable::Channel
 
     current_user.update_attribute(:online, true)
 
-    ActionCable.server.broadcast "presence_channel", users: User.online
+    broadcast_online
   end
 
   def unsubscribed
     current_user.update_attribute(:online, false)
+
+    broadcast_online
+  end
+
+  private
+  def broadcast_online
+    ActionCable.server.broadcast "presence_channel", users: User.online
   end
 end
