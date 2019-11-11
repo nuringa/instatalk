@@ -9,6 +9,6 @@ App.presence = App.cable.subscriptions.create "PresenceChannel",
   printOnline: (users) ->
     if (users.length > 0)
       text = ''
-      text += users.map((user) -> user.nickname).join(', ')
+      text += users.map((user) -> user.nickname).join(' ')
 
       $('.users-online').text(text)
